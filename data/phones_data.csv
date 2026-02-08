@@ -1,0 +1,25 @@
+id,model,brand,price,launch_year,processor,ram,storage,display,battery,best_for,gaming,camera,battery_score,performance,display_score,reason,rating
+galaxy_s25_ultra,Galaxy S25 Ultra,Samsung,134999,2025,Snapdragon 8 Gen 4,12GB,256GB,6.9 inch,5000mAh,"flagship, camera, ai",4.0,"{'rear': {'main': '200MP OIS', 'ultrawide': '12MP', 'telephoto': '50MP Periscope', 'features': ['8K Video', 'AI Zoom', 'Nightography']}, 'front': '12MP'}",4.0,4.0,4.0,,4.9
+galaxy_s25_plus,Galaxy S25+,Samsung,99999,2025,Snapdragon 8 Gen 4,12GB,256GB,6.7 inch,4900mAh,"premium, performance",4.0,"{'rear': {'main': '50MP OIS', 'ultrawide': '12MP', 'telephoto': '10MP', 'features': ['4K Video', 'AI HDR']}, 'front': '12MP'}",4.0,4.0,4.0,,4.7
+galaxy_s25,Galaxy S25,Samsung,84999,2025,Snapdragon 8 Gen 4,8GB,128GB,6.3 inch,4200mAh,compact flagship,4.0,"{'rear': {'main': '50MP OIS', 'ultrawide': '12MP', 'telephoto': '10MP', 'features': ['4K Video', 'AI HDR']}, 'front': '12MP'}",4.0,4.0,4.0,,4.6
+galaxy_s24_ultra,Galaxy S24 Ultra,Samsung,129999,2024,Snapdragon 8 Gen 3,12GB,256GB,6.8 inch,5000mAh,"flagship, camera",4.0,"{'rear': {'main': '200MP OIS', 'ultrawide': '12MP', 'telephoto': '50MP Periscope', 'features': ['8K Video', 'Night Mode']}, 'front': '12MP'}",4.0,4.0,4.0,,4.8
+galaxy_s24,Galaxy S24,Samsung,79999,2024,Exynos 2400,8GB,128GB,6.2 inch,4000mAh,"compact, performance",4.0,"{'rear': {'main': '50MP OIS', 'ultrawide': '12MP', 'telephoto': '10MP', 'features': ['4K Video']}, 'front': '12MP'}",4.0,4.0,4.0,,4.6
+galaxy_a55_5g,Galaxy A55 5G,Samsung,39999,2024,Exynos 1480,8GB,128GB,6.6 inch,5000mAh,"midrange, camera",4.0,"{'rear': {'main': '50MP OIS', 'ultrawide': '12MP', 'telephoto': 'NA', 'features': ['4K Video']}, 'front': '32MP'}",4.0,4.0,4.0,,4.4
+galaxy_a35_5g,Galaxy A35 5G,Samsung,30999,2024,Exynos 1380,8GB,128GB,6.6 inch,5000mAh,value for money,4.0,"{'rear': {'main': '50MP OIS', 'ultrawide': '8MP', 'telephoto': 'NA', 'features': ['4K Video']}, 'front': '13MP'}",4.0,4.0,4.0,,4.3
+galaxy_f15_5g,Galaxy F15 5G,Samsung,13999,2024,Dimensity 6100+,4GB,128GB,6.5 inch,6000mAh,"battery, budget 5g",4.0,"{'rear': {'main': '50MP', 'ultrawide': 'NA', 'telephoto': 'NA', 'features': ['HDR']}, 'front': '13MP'}",4.0,4.0,4.0,,4.1
+galaxy_m15_5g,Galaxy M15 5G,Samsung,12999,2024,Dimensity 6100+,4GB,128GB,6.5 inch,6000mAh,battery,4.0,"{'rear': {'main': '50MP', 'ultrawide': 'NA', 'telephoto': 'NA', 'features': ['HDR']}, 'front': '13MP'}",4.0,4.0,4.0,,4.0
+realme_12_pro_plus_5g,Realme 12 Pro+ 5G,Realme,29999,2024,Snapdragon 7s Gen 2,,,,,"camera, portrait",4.0,50MP + 64MP Periscope,4.0,4.0,4.0,,4.4
+realme_narzo_70_pro_5g,Realme Narzo 70 Pro 5G,Realme,19999,2024,Dimensity 7050,,,,,"gaming, value",4.0,50MP OIS,4.0,4.0,4.0,,4.3
+realme_gt_6,Realme GT 6,Realme,35999,2025,Snapdragon 8s Gen 3,,,,,"performance, fast charging",4.0,50MP OIS,4.0,4.0,4.0,,4.6
+redmi_note_13_pro_plus,Redmi Note 13 Pro+,Redmi,31999,2024,Dimensity 7200 Ultra,,,,,camera,4.0,200MP,4.0,4.0,4.0,,4.5
+redmi_note_14_pro,Redmi Note 14 Pro,Redmi,32999,2025,Snapdragon 7 Gen 3,,,,,"midrange, camera",4.0,200MP,4.0,4.0,4.0,,4.6
+poco_x6_pro,Poco X6 Pro,Poco,25999,2024,Dimensity 8300 Ultra,,,,,"gaming, performance",4.0,64MP,4.0,4.0,4.0,,4.6
+poco_f6,Poco F6,Poco,29999,2025,Snapdragon 8s Gen 3,,,,,flagship killer,4.0,50MP,4.0,4.0,4.0,,4.7
+iphone_15,iPhone 15,Apple,79900,2024,A16 Bionic,,,,,"camera, ios",4.0,48MP,4.0,4.0,4.0,,4.7
+iphone_16,iPhone 16,Apple,84900,2025,A18,,,,,longevity,4.0,48MP,4.0,4.0,4.0,,4.8
+vivo_v30,Vivo V30,Vivo,33999,2024,Snapdragon 7 Gen 3,,,,,selfie,4.0,50MP,4.0,4.0,4.0,,4.4
+vivo_x100,Vivo X100,Vivo,63999,2025,Dimensity 9300,,,,,photography,4.0,50MP Zeiss,4.0,4.0,4.0,,4.7
+oppo_reno_11,Oppo Reno 11,Oppo,28999,2024,Dimensity 7050,,,,,portrait,4.0,50MP,4.0,4.0,4.0,,4.3
+oppo_find_x7,Oppo Find X7,Oppo,69999,2025,Dimensity 9300,,,,,flagship,4.0,50MP Hasselblad,4.0,4.0,4.0,,4.8
+moto_edge_40,Moto Edge 40,Motorola,26999,2024,Dimensity 8020,,,,,clean android,4.0,50MP,4.0,4.0,4.0,,4.4
+moto_edge_50_pro,Moto Edge 50 Pro,Motorola,35999,2025,Snapdragon 7 Gen 3,,,,,fast charging,4.0,50MP,4.0,4.0,4.0,,4.6
