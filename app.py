@@ -54,6 +54,18 @@ def initialize_model():
         
         recommender = train_model()
 
+def get_recommender():
+    """Ensure the recommender is loaded before handling requests."""
+    global recommender
+    if recommender is None:
+        initialize_model()
+    return recommender
+
+try:
+    initialize_model()
+except Exception as exc:
+    print(f"⚠️  Model initialization failed: {exc}")
+
 # ===========================
 # ROOT PAGE
 # ===========================
@@ -104,8 +116,20 @@ def recommend():
         
         query = data.get("query")
         use_case = data.get("use_case")
-        budget = data.get("budget", type=int) if isinstance(data.get("budget"), int) else None
+        budget = data.get("budget")
+        if budget is not None:
+            try:
+                budget = int(budget)
+            except (TypeError, ValueError):
+                budget = None
         top_k = data.get("top_k", 5)
+
+        model = get_recommender()
+        if model is None:
+            return jsonify({
+                "error": "Model not available",
+                "message": "Recommender failed to initialize"
+            }), 503
         
         # Validate inputs
         if not query and not use_case and not budget:
@@ -117,11 +141,11 @@ def recommend():
         
         # 1. Text-based recommendation (if query provided)
         if query:
-            results = recommender.recommend_by_text(query, top_k=top_k)
+            results = model.recommend_by_text(query, top_k=top_k)
         
         # 2. Specs-based recommendation (if use_case or budget provided)
         elif use_case or budget:
-            results = recommender.recommend_by_specs(
+            results = model.recommend_by_specs(
                 budget=budget,
                 use_case=use_case,
                 top_k=top_k
@@ -152,7 +176,11 @@ def search():
         if not q:
             return jsonify({"error": "Query parameter 'q' is required"}), 400
         
-        results = recommender.recommend_by_text(q, top_k=top_k)
+        model = get_recommender()
+        if model is None:
+            return jsonify({"error": "Model not available"}), 503
+
+        results = model.recommend_by_text(q, top_k=top_k)
         
         return jsonify({
             "success": True,
@@ -182,7 +210,11 @@ def filter_phones():
                 "error": "Provide at least one of: budget or use_case"
             }), 400
         
-        results = recommender.recommend_by_specs(
+        model = get_recommender()
+        if model is None:
+            return jsonify({"error": "Model not available"}), 503
+
+        results = model.recommend_by_specs(
             budget=budget,
             use_case=use_case,
             top_k=top_k
@@ -207,15 +239,19 @@ def filter_phones():
 def stats():
     """Get dataset statistics"""
     try:
+        model = get_recommender()
+        if model is None:
+            return jsonify({"error": "Model not available"}), 503
+
         stats_data = {
-            "total_phones": len(recommender.df),
-            "brands": recommender.df['brand'].unique().tolist(),
+            "total_phones": len(model.df),
+            "brands": model.df['brand'].unique().tolist(),
             "price_range": {
-                "min": int(recommender.df['price'].min()),
-                "max": int(recommender.df['price'].max()),
-                "avg": int(recommender.df['price'].mean())
+                "min": int(model.df['price'].min()),
+                "max": int(model.df['price'].max()),
+                "avg": int(model.df['price'].mean())
             },
-            "use_cases": recommender.df['best_for'].unique().tolist()[:10]
+            "use_cases": model.df['best_for'].unique().tolist()[:10]
         }
         
         return jsonify({
