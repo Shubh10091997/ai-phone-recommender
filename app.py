@@ -54,11 +54,30 @@ def initialize_model():
         
         recommender = train_model()
 
+    if recommender is None:
+        return None
+
+    if getattr(recommender, "df", None) is None:
+        if not DATA_PATH.exists():
+            print("📊 Preparing data...")
+            from prepare_data import save_data_csv
+            save_data_csv()
+        recommender.load_data(DATA_PATH)
+
+    if getattr(recommender, "tfidf_matrix", None) is None:
+        print("🔧 Preparing missing features...")
+        recommender.prepare_features()
+        recommender.save_model(MODEL_PATH)
+    
+    return recommender
+
 def get_recommender():
     """Ensure the recommender is loaded before handling requests."""
     global recommender
     if recommender is None:
-        initialize_model()
+        recommender = initialize_model()
+    elif getattr(recommender, "tfidf_matrix", None) is None:
+        recommender = initialize_model()
     return recommender
 
 try:
