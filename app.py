@@ -15,7 +15,20 @@ sys.path.insert(0, str(BASE_DIR))
 from recommender import PhoneRecommender, train_model
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for website integration
+
+# Enable CORS with proper configuration
+CORS(app, resources={
+    r"/api/*": {
+        "origins": ["https://top3pick.in", "http://localhost:3000", "http://localhost:5000"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"],
+        "supports_credentials": True
+    },
+    r"/health": {
+        "origins": "*",
+        "methods": ["GET"],
+    }
+})
 
 # Load model
 MODEL_PATH = BASE_DIR / "models" / "phone_recommender.pkl"
