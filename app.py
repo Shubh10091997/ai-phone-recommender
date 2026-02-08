@@ -43,8 +43,13 @@ def initialize_model():
     if MODEL_PATH.exists():
         print("📦 Loading existing model...")
         recommender = PhoneRecommender()
-        recommender = recommender.load_model(MODEL_PATH)
-    else:
+        try:
+            recommender = recommender.load_model(MODEL_PATH)
+        except Exception as exc:
+            print(f"⚠️  Model load failed, rebuilding: {exc}")
+            recommender = PhoneRecommender()
+    
+    if recommender is None or getattr(recommender, "df", None) is None:
         print("🤖 Training new model...")
         # First prepare data if needed
         if not DATA_PATH.exists():
@@ -52,7 +57,9 @@ def initialize_model():
             from prepare_data import save_data_csv
             save_data_csv()
         
-        recommender = train_model()
+        recommender.load_data(DATA_PATH)
+        recommender.prepare_features()
+        recommender.save_model(MODEL_PATH)
 
     if recommender is None:
         return None
